@@ -1,4 +1,5 @@
-#m3u8视频播放器 
+#m3u8视频播放器
+
 已封装起来 使用更简单
 
 	> 基于video-js 源地址：https://github.com/Tinywan/html5-dash-hls-rtmp
