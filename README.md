@@ -2,7 +2,7 @@
 
 已封装起来 使用起来更简单 下面是使用方法
 
-### 使用：
+### 使用： 
 
 	<head>
 		<link href="video-js/video-js.css" rel="stylesheet">
