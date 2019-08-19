@@ -42,23 +42,23 @@
 	
 	- player.pause()	// 暂停
 	
-	- player.start() // 如果没有暂停就播放
+	- player.start()	// 如果没有暂停就播放
 	
 	- player.stop()	// 停止播放 并且当前播放时间设置为0
 	
 	- player.release()	// 销毁播放器
 	
-	- player.setVolume(volume) // 设置音量(0 ~ 1) 例如：player.setVolume(0.5)
+	- player.setVolume(volume)	// 设置音量(0 ~ 1) 例如：player.setVolume(0.5)
 	
-	- player.getVolume() // 获取当前音量
+	- player.getVolume()	// 获取当前音量
 	
 	- player.setMute(status)	// 静音(true/false) 不填写 默认静音或不静音
 	
-	- player.setCurrentTime(time) // 设置当前播放时间(秒) 
+	- player.setCurrentTime(time)	// 设置当前播放时间(秒) 
 	
-	- player.getCurrentTime() // 获取当前播放的时间
+	- player.getCurrentTime()	// 获取当前播放的时间
 	
-	- player.getDuration() // 获取视频总时长
+	- player.getDuration()	// 获取视频总时长
 	
 
 ## 2019.8.19
