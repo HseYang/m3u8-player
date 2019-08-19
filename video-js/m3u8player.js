@@ -22,14 +22,16 @@
  * 
  * */
 
-$(function() {
-	$("live-player").each(function() {
-		var that = $(this)
-		setTimeout(function() {
-			new livePlayer(that)
-		}, 0)
-	});
-})
+var initAllPlayer = function(){
+	$(function() {
+		$("live-player").each(function() {
+			var that = $(this)
+			setTimeout(function() {
+				new livePlayer(that)
+			}, 0)
+		});
+	})
+}
 
 var livePlayer = function(ele) {
 	this.init(ele)
@@ -107,8 +109,115 @@ livePlayer.prototype = {
 			this.initListener()
 			// 如果有autoplay属性 则自动播放
 			if(this.autoplay) {
-				this.players.play()
+				this.play()
 			}
+		}
+	},
+	// 播放
+	play: function(){
+		if(this.players){
+			console.log(this.players.play)
+			this.players.play()
+		} else {
+			console.warn("play error")	
+		}
+	},
+	// 暂停
+	pause: function(){
+		if(this.players){
+			this.players.pause()
+		} else {
+			console.warn("pause error")	
+		}
+	},
+	// 播放或暂停
+	start: function(){
+		if(this.players){
+			if(this.players.paused()){
+				this.play()
+			} else {
+				this.pause()
+			}
+		} else {
+			console.warn("start error")	
+		}
+	},
+	// 停止播放 并且重置
+	stop: function(){
+		if(this.players){
+			this.pause()
+			this.setCurrentTime(0)
+		} else {
+			console.warn("stop error")	
+		}
+	},
+	// 释放video
+	release : function(){
+		if(this.players){
+			this.players.reset()
+			this.ele.remove()
+		} else {
+			console.warn("release error")	
+		}
+	},
+	// 设置音量
+	setVolume: function(volume){
+		if(this.players){
+			if(volume >= 0 && volume <= 1){
+				this.players.volume(volume)
+			}else{
+				console.warn("setVolume error => volume : ", volume)
+			}
+		} else {
+			console.warn("setVolume error")	
+		}
+	},
+	// 获取当前音量
+	getVolume: function(){
+		if(this.players){
+			return this.players.volume()
+		} else {
+			console.warn("getVolume error")	
+		}
+	},
+	// 静音或不静音
+	setMute: function(status){
+		if(this.players){
+			if(status === true || status == false){
+				this.players.muted(status)
+			} else {
+				this.players.muted(!this.players.muted())
+			}
+		} else {
+			console.warn("setMute error")	
+		}
+	},
+	// 设置当前播放时间
+	setCurrentTime: function(time){
+		if(this.players){
+			if(time && time >= 1){
+				this.players.currentTime(time)
+			} else {
+				console.warn("setCurrentTime error => time : ", time)
+			}
+		} else {
+			console.warn("setCurrentTime error")	
+		}
+	},
+	// 获取当前播放时间
+	getCurrentTime: function(){
+		if(this.players){
+			return this.players.currentTime()
+		} else {
+			console.warn("getCurrentTime error")	
+		}
+	},
+	// 获取总时长
+	getDuration: function(){
+		if(this.players){
+			return this.players.duration()
+		} else {
+			console.warn("getDuration error")	
 		}
 	},
 	// 初始化player各种监听事件
