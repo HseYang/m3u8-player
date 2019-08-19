@@ -10,7 +10,7 @@
 		<script src="video-js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="video-js/video.js"></script>
 		<script src="video-js/videojs-contrib-hls.min.js"></script>
-
+		<script src="video-js/m3u8player.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<style type="text/css">
 		* {
@@ -30,7 +30,9 @@
 		<div class="box">
 			<live-player width="" height="" src="xx"></live-player>
 		</div>
-		<script src="video-js/m3u8player.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			initAllPlayer()
+		</script>
 	</body>
 
 </html>
